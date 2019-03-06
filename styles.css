@@ -1,42 +1,73 @@
 
 body {
-  background-color: #562bbc;
+  background: rgb(86,43,188);
+  background: linear-gradient(90deg, rgba(86,43,188,1) 0%, rgba(86,43,188,1) 36%, rgba(86,43,188,1) 66%, rgba(154,111,255,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
 }
 h1 {
   font-size: 48px;
   font-family: arial;
   color: #e28cd1;
+  cursor:default;
 }
 
-.container{
-  /*width:100%; */
-  position: absolute;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
+.inputSection{
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  margin: 20px 0px 80px 0px;
 }
 
-.button {
+.inputs{
+  width:inherit;
+  flex-direction: column;
+  display: flex;
+}
+
+input{
+  height:40px;
+  width: inherit;
+  font-size: 20px;
+  font-family: arial;
+  color: #e28cd1;
+  font-weight: bold;
+  background-color: transparent;
+  outline: 0;
+  margin-top:10px;
+  border-width: 0 0 2px;
+  border-bottom: 2px, solid #e28cd1;
+  border-color: #e28cd1;
+}
+input:hover{
+  border-width: 0 0 2px;
+  border-bottom: 2px, solid #e28cd1;
+  border-color: #e28cd1;
+  opacity: 0.7;
+}
+
+input::placeholder {
+  font-size: 20px;
+  font-style: italic;
+  font-family: arial;
+  color: #e28cd1;
+  opacity: 0.8;
+  font-weight: bold;
+}
+input:focus::-webkit-input-placeholder {color:transparent;}
+
+button{
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
 
-.AddButton:hover {
-  width:42px;
-  height:42px;
-  background-color: #562bbc;
-  color:white;
-}
-.Submit:hover {
-  width:152px;
-  height:52px;
-  background-color: #e28cd1;
-  color:white;
-}
-
-.AddButton{
+.addButton{
   background-color: #562bbc;
   width:40px;
+  margin-top: 20px;
   height:40px;
   border-radius: 50%;
   border-width: 2px;
@@ -46,40 +77,29 @@ h1 {
   font-family: arial;
   text-align: center;
 }
-.Submit{
-  background-color:#e28cd1;
+
+.addButton:hover {
+  background-color: #562bbc;
+  font-weight: bold;
+  color:white;
+}
+.submitButton{
+  background-color: #e28cd1;
   width:150px;
-  height:50px;
-  margin-left: 30%;
+  height:70px;
+  border-radius: 20px;
+  margin-bottom: 40px;
   border-width: 2px;
   border-color: #562bbc;
   font-size: 40px;
   color: #562bbc;
   font-family: arial;
   text-align: center;
-}
-input::placeholder {
-  font-size: 20px;
-  font-family: arial;
-  color: #e28cd1;
-  font-weight: bold;
-}
-input[type="text"] {
-  font-size: 20px;
-  font-family: arial;
-  color: #e28cd1;
-  font-weight: bold;
-}
 
-input {
-  height:40px;
-  width: 200px;
-  background-color: #562bbc;
-  margin-left: 0%;
-  margin-bottom: 10px;
-  outline: 0;
-  border-width: 0 0 2px;
-  border-bottom: 2px, solid #e28cd1;
-  border-color: #e28cd1;
 
+}
+.submitButton:hover {
+  font-weight: bold;
+  background-color: #e28cd1;
+  color:white;
 }

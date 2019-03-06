@@ -6,16 +6,42 @@
   <title> Help me choose... </title>
 </head>
 <body>
-
-<div class="container">
-  <div class="center">
-    <h1> Help me choose between...</h1>
+  <h1> Help me choose between...</h1>
+  <div class="inputSection">
       <div class="inputs">
         <input type='text' placeholder=" ...something"> </input>
         </div>
-        <button class="AddButton"> + </button>
+        <button class="addButton"> + </button>
   </div>
-  <button class="Submit"> GO!</button>
-</div>
+  <div class ="resultSection"> </div>
+  <button type='submit' class="submitButton"> GO!</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
+<script>
+ $(function() {
+   $('.resultSection').hide()
+
+  var add_option = function() {
+    $('.inputs').append('<input placeholder="...something else"></input>')
+  }
+
+  $('.addButton').click(add_option)
+
+  var options = []
+  var submit = function(){
+    $('input').each(function() {
+      options.push($(this).val())
+    })
+  var winner = options[Math.floor(Math.random() * options.length)]
+  console.log(winner);
+  $('.resultSection').text(winner)
+  }
+    $('.submitButton').click(submit)
+ })
+
+
+</script>
+
+
 </body>
 </html>
