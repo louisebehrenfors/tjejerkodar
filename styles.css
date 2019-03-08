@@ -43,7 +43,9 @@ h1 {
         -o-animation: fadein 2s; /* Opera < 12.1 */
            animation: fadein 2s;
 }
-
+.tipsSection{
+  font-family: arial;
+}
 
 
 
@@ -119,7 +121,7 @@ input:focus::-webkit-input-placeholder {color:transparent;}
 
 button{
   -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s; 
+  transition-duration: 0.1s;
 }
 
 .addButton{
@@ -156,6 +158,7 @@ button{
 }
 .submitButton:hover {
   font-weight: bold;
+  opacity: 0.8;
   background-color: #e28cd1;
   color:white;
 }
