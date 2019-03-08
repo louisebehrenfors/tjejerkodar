@@ -122,6 +122,10 @@ input:focus::-webkit-input-placeholder {color:transparent;}
 button{
   -webkit-transition-duration: 0.1s;
   transition-duration: 0.1s;
+  cursor: -webkit-grab; cursor: grab;
+}
+button:active{
+  cursor: -webkit-grabbing; cursor: grabbing;
 }
 
 .addButton{
@@ -142,6 +146,8 @@ button{
   background-color: #562bbc;
   font-weight: bold;
   color:white;
+  width:42px;
+  height:42px;
 }
 .submitButton{
   background-color: #e28cd1;
