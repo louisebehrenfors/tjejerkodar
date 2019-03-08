@@ -34,6 +34,7 @@ h1 {
   font-family: arial;
   height: 300px;
   display: flex;
+  cursor:default;
   justify-content: center;
   align-items: center;
 
@@ -45,6 +46,7 @@ h1 {
 }
 .tipsSection{
   font-family: arial;
+  cursor:default;
 }
 
 
