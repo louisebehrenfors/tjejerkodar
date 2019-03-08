@@ -9,23 +9,62 @@
   <h1> Help me choose between...</h1>
   <div class="inputSection">
       <div class="inputs">
-        <input type='text' placeholder=" ...something"> </input>
-        </div>
+
+          <input type='text' placeholder=" ...something"> </input>
+
+      </div>
+
+
         <button class="addButton"> + </button>
   </div>
   <div class ="resultSection"> </div>
   <button type='submit' class="submitButton"> GO!</button>
+  <button class="goAgainButton"> GO AGAIN! </button>
+  <div class="tipsSection"> Psst... double-click on certain input field to remove option </div>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"> </script>
 <script>
  $(function() {
    $('.resultSection').hide()
+   $('.goAgainButton').hide()
 
   var add_option = function() {
-    $('.inputs').append('<input placeholder="...something else"></input>')
+  /*  $('.inputs').append('<input placeholder="...something else"></input>')*/
+  $('.inputs').append(
+      $('<input>', {
+          type: 'text',
+          placeholder: "... something else",
+          val: $('inputs').text()
+      })
+  );
+
   }
 
   $('.addButton').click(add_option)
+
+  $( '.inputs' ).dblclick(function() {
+    if( $('.input:focus').is(':first')) {
+      alert("Can't delete first input")
+    }
+    else{
+    alert( "Handler for .dblclick() called." );
+    $('input:focus').remove()
+  }
+    });
+
+  $(document).ready(function() {
+    $('.inputs').keypress(function(event) {
+           if(event.which== 13) {
+            add_option()
+             event.preventDefault();
+             /*$('input:first').nextAll('input').focus();*/
+            $('input').nextAll('input').focus();
+             $(this).nextAll('input').select();
+
+
+           }
+    })
+})
 
   var options = []
   var submit = function(){
@@ -35,8 +74,30 @@
   var winner = options[Math.floor(Math.random() * options.length)]
   console.log(winner);
   $('.resultSection').text(winner)
+  $('.resultSection').show()
+  $('.inputSection').hide()
+    $("h1").html("The winner is... ");
+    $('.submitButton').hide()
+      $('.goAgainButton').show()
+    $('.deleteButton').hide()
+    $('.tipsSection').hide()
+
   }
+
     $('.submitButton').click(submit)
+
+
+    var goagain= function(){
+      $("h1").html(" Help me choose between...");
+      $('.submitButton').show()
+      $('.goAgainButton').hide()
+      $('.resultSection').hide()
+      $('.inputSection').show()
+      $('.tipsSection').show()
+
+    }
+
+      $('.goAgainButton').click(goagain)
  })
 
 
