@@ -9,15 +9,13 @@
   <h1> Help me choose between...</h1>
   <div class="inputSection">
       <div class="inputs">
-
           <input type='text' placeholder=" ...something"> </input>
-
       </div>
-
-
         <button class="addButton"> + </button>
   </div>
-  <div class ="resultSection"> </div>
+  <div class ="resultSection">
+    
+  </div>
   <button type='submit' class="submitButton"> GO!</button>
   <button class="goAgainButton"> GO AGAIN! </button>
   <div class="tipsSection"> Psst... double-click on certain input field to remove option </div>
@@ -27,6 +25,7 @@
  $(function() {
    $('.resultSection').hide()
    $('.goAgainButton').hide()
+   $('.loader').hide()
 
   var add_option = function() {
   /*  $('.inputs').append('<input placeholder="...something else"></input>')*/
@@ -43,13 +42,7 @@
   $('.addButton').click(add_option)
 
   $( '.inputs' ).dblclick(function() {
-    if( $('.input:focus').is(':first')) {
-      alert("Can't delete first input")
-    }
-    else{
-    alert( "Handler for .dblclick() called." );
-    $('input:focus').remove()
-  }
+        $('input:focus').remove()
     });
 
   $(document).ready(function() {
@@ -67,7 +60,18 @@
 })
 
   var options = []
-  var submit = function(){
+var submit = function(){
+
+    var empty=true;
+    $('input[type="text"]').each(function(){
+     if($(this).val()!=""){
+        empty =false;
+        return false;
+      }
+   });
+
+    if(empty == true){alert(" Please fill in all input sections")}
+    else{
     $('input').each(function() {
       options.push($(this).val())
     })
@@ -82,10 +86,9 @@
     $('.deleteButton').hide()
     $('.tipsSection').hide()
 
-  }
+  }}
 
     $('.submitButton').click(submit)
-
 
     var goagain= function(){
       $("h1").html(" Help me choose between...");
@@ -95,6 +98,9 @@
       $('.inputSection').show()
       $('.tipsSection').show()
 
+      $('input').remove()
+      add_option()
+      $('input').attr("placeholder", "...something");
     }
 
       $('.goAgainButton').click(goagain)
